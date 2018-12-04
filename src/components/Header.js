@@ -3,7 +3,7 @@ import React from 'react'
 
 const header = (props) => {
   return(
-    <p>Hey</p>
+    <p>Hey There</p>
   )
 }
 
