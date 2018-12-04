@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import booksLogo from './books_img.jpeg';
 import './App.css';
 import Header from './components/Header'
 
@@ -9,7 +9,7 @@ class App extends Component {
       <div className="App">
         <Header />
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+          <img src={booksLogo}  alt="logo" />
           <p>
             Edit <code>src/App.js</code> and save to reload.
           </p>
