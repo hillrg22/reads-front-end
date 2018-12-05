@@ -2,13 +2,28 @@
   text-align: center;
 }
 
+.title {
+  margin-right: 5em;
+}
+
+
+.author {
+  margin-right: 5em;
+}
 .logo {
   height: 200px;
   width: auto;
   display:flex;
   align-items: flex-start;
-  
+
 }
+
+.bookList {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 
 
 .App-logo {
@@ -38,4 +53,11 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.thumb {
+  height: 350 px;
+  width: 250px;
+  margin-top: 4em;
+  margin-right: 4em;
 }

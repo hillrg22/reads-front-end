@@ -12,9 +12,8 @@ class BookList extends React.Component {
 
 
   componentDidMount(){
-
-    console.log('component did mount')
     this.fetchBooks()
+
   }
 
   fetchBooks = () => {
@@ -25,7 +24,12 @@ class BookList extends React.Component {
         console.log('data', data.books)
         const books = data.books.map(book => {
           return(
-            <p>{book.title}</p>
+            <div className= "bookList">
+              <img className = "thumb" src = {book.cover_url} alt = {book.title} />
+              <h2 className = "title">{book.title}</h2>
+              <p className = "author"> by: Author</p>
+              <p>{book.description}</p>
+            </div>
           )
         })
         context.setState({books})
@@ -35,6 +39,7 @@ class BookList extends React.Component {
   render(){
     return(
       <div>
+
         <p>Books go here</p>
         {this.state.books}
       </div>
