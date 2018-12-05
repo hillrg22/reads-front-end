@@ -1,5 +1,5 @@
 import React from 'react'
-
+import Book from './Book.js'
 
 
 class BookList extends React.Component {
@@ -14,54 +14,43 @@ class BookList extends React.Component {
 
   componentDidMount(){
     this.fetchBooks()
-    this.fetchBooksAuthors()
+    // this.fetchBooksAuthors()
 
   }
 
   fetchBooks = () => {
     const context = this
-     fetch('http://localhost:3002/books')
+     fetch('http://localhost:3002/author_book')
       .then(response => response.json())
       .then(function(data){
-        console.log('data', data.books)
-        const books = data.books.map(book => {
-          return(
-            <div className= "bookList">
-              <img className = "thumb" src = {book.cover_url} alt = {book.title} />
-              <h2 className = "title">{book.title}</h2>
-              <p className = "author"> by: Author</p>
-              <p>{book.description}</p>
-            </div>
-          )
-        })
-        context.setState({books})
+        // console.log('this data', data.books)
+        context.setState({books: data.books})
       })
   }
 
-  fetchBooksAuthors = () => {
-    const context = this
-      fetch('http://localhost:3002/author_book')
-        .then(response => response.json())
-        .then(function(data){
-          console.log('author_book data', data.books)
-          const booksAuthors = data.books.map(book =>{
-            return(
-              <div>
-                <img className = 'thumb'src = {book.cover_url} alt = {book.title} />
-                <p>{book.first_name} {book.last_name}</p>
-
-              </div>
-            )
-          })
-          context.setState({booksAuthors})
-        })
-  }
+  // fetchBooksAuthors = () => {
+  //   const context = this
+  //     fetch('http://localhost:3002/author_book')
+  //       .then(response => response.json())
+  //       .then(function(data){
+  //         console.log('author_book data', data.books)
+  //         const booksAuthors = data.books.map(book =>{
+  //           return(
+  //             <div>
+  //               <img className = 'thumb'src = {book.cover_url} alt = {book.title} />
+  //               <p>{book.first_name} {book.last_name}</p>
+  //
+  //             </div>
+  //           )
+  //         })
+  //         context.setState({booksAuthors})
+  //       })
+  // }
 
   render(){
     return(
       <div>
-        {this.state.books}
-        {this.state.booksAuthors}
+        <Book books={this.state.books} />
       </div>
     )
   }

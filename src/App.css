@@ -12,6 +12,11 @@
   align-items: center;
 }
 
+.description {
+  margin-right: 3em;
+  width: 400px;
+}
+
 .author {
   margin-right: 5em;
 }
@@ -28,6 +33,11 @@ img.logo {
   display: flex;
   align-items: center;
   justify-content: center;
+  border-color: #282c34;
+  border-width: thin;
+  border-spacing: 1em;
+  border-style: solid;
+  margin: 1em;
 }
 
 
@@ -63,5 +73,6 @@ img.logo {
   height: 350 px;
   width: 250px;
   margin-top: 4em;
+  margin-bottom: 4em;
   margin-right: 4em;
 }

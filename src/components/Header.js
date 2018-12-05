@@ -1,7 +1,7 @@
 import React from 'react'
 import booksLogo from '../books_img.jpeg';
 
-const header = (props) => {
+const Header = (props) => {
   return(
     <div className = "header">
 
@@ -17,4 +17,4 @@ const header = (props) => {
 
 
 
-export default header
+export default Header
