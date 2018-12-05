@@ -39,8 +39,6 @@ class BookList extends React.Component {
   render(){
     return(
       <div>
-
-        <p>Books go here</p>
         {this.state.books}
       </div>
     )
