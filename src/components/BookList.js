@@ -8,11 +8,13 @@ class BookList extends React.Component {
     }
     state= {
       books:[] ,
+      booksAuthors: [],
     }
 
 
   componentDidMount(){
     this.fetchBooks()
+    this.fetchBooksAuthors()
 
   }
 
@@ -36,10 +38,30 @@ class BookList extends React.Component {
       })
   }
 
+  fetchBooksAuthors = () => {
+    const context = this
+      fetch('http://localhost:3002/author_book')
+        .then(response => response.json())
+        .then(function(data){
+          console.log('author_book data', data.books)
+          const booksAuthors = data.books.map(book =>{
+            return(
+              <div>
+                <img className = 'thumb'src = {book.cover_url} alt = {book.title} />
+                <p>{book.first_name} {book.last_name}</p>
+
+              </div>
+            )
+          })
+          context.setState({booksAuthors})
+        })
+  }
+
   render(){
     return(
       <div>
         {this.state.books}
+        {this.state.booksAuthors}
       </div>
     )
   }
